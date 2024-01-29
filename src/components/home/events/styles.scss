@@ -1,0 +1,142 @@
+.common-container{
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .section-1{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 74%;
+        .events, .conferences, .councils{
+            .title{      
+                font-size: 20px;
+                font-weight: 600;
+                margin: 10px;
+                display: inline-block;
+                
+            }
+            .carts-container{
+                width: 100%;
+                display: flex;
+                gap: 2%;
+                flex-wrap: wrap;
+                //justify-content: center;
+                align-items: center;
+                .cart{
+                    width: 305px;
+                    display: flex;
+                    flex-direction: column;
+                    .img{
+                        
+                        display: inline-block;
+                        position: relative;
+                        .cam{
+                            position: absolute;
+                            top: 5px;
+                        }
+                        .date{
+                            position: absolute;
+                            top: 5px;
+                            right: 0px;
+                            background: rgba(1, 4, 99, 0.70);
+                            color: #FFF;
+                            font-size: 10px;
+                            font-style: italic;
+                            font-weight: 500;
+                            padding: 5px;
+                        }
+                    }
+                    .text{
+                        padding: 5px;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .section-2{
+        width: 24%;
+        .title{
+            font-size: 20px;
+            font-weight: 600;
+            margin: 10px;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+        }
+        .information{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            text-align: center;
+            gap: 40px;
+            .btns{
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                .eco-index, .life-index, .oil-price{
+                    background-color: #010463;
+                    width: 305px;
+                    height: 110px;
+                    color: #FFF;
+                    text-align: center;
+                    font-size: 21px;
+                    font-weight: 700;
+                    border: 0;
+                }
+                .oil-price{
+                    height: 68px;
+                }
+            }
+            
+            
+        }   
+    }
+}
+@media screen and (max-width:1300px) {
+    .common-container{
+        flex-direction: column;
+        .section-1{
+            width: 100%;
+            .events, .conferences, .councils{
+                
+                .title{
+                    display: flex;
+                    justify-content: center;
+                }
+                .carts-container{
+                    justify-content: center;
+                    gap: 20px;
+                }
+            }
+        }
+        .section-2{
+            width: 100%;
+            .information{
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .common-container{
+        gap: 20px;
+        .section-1{
+            width: 100%;
+                .events, .conferences, .councils{
+                    .carts-container{
+                        justify-content: center;
+                        gap: 20px;
+                    }
+                }
+                    
+                
+            
+        }
+    }
+    
+}

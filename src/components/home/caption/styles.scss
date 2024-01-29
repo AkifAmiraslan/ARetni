@@ -1,0 +1,24 @@
+.caption-container{
+    background-image: url(../../../assets/images/name-background.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    gap: 10px;
+    p{
+        color: #FFF;
+        text-align: center;
+        font-family: Inter;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
+@media screen and (max-width:768px) {
+    .caption-container{
+        p{
+            font-size: 20px;
+        }
+    }
+}

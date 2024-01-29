@@ -1,0 +1,180 @@
+.header {
+    &-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background-color: #010463;
+      padding: 5px 3%;
+  
+      .links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        list-style-type: none;
+        flex-wrap: wrap;
+  
+        li {
+          position: relative;
+  
+          .link {
+            display: flex;
+            color: #fff;
+            font-weight: 400;
+            gap: 10px;
+            font-size: 18px;
+            text-decoration: none;
+  
+            img {
+              width: 20px;
+            }
+          }
+  
+          .link-children {
+            display: none; // Initially hide the submenu
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            background-color: #010463;
+            width: 100%;
+            padding-block: 15px;
+            gap: 15px;
+  
+            a {
+              color: #fff;
+              font-weight: 300;
+              text-decoration: none;
+              font-size: 16px;
+            }
+          }
+  
+          &.show {
+            .about-children {
+              display: flex; // Show the submenu when parent li has 'show' class
+            }
+          }
+        }
+      }
+  
+      .social-medias {
+        display: flex;
+        gap: 10px;
+      }
+  
+      .search {
+        display: flex;
+  
+        input {
+          width: 50px;
+          border: 0;
+          background-color: #010463;
+          color: #fff;
+        }
+      }
+  
+      .languages {
+        display: flex;
+        gap: 5px;
+        color: #fff;
+  
+        p {
+          position: relative;
+          cursor: pointer;
+          margin: 0;
+  
+          &:hover .underline {
+            width: 100%;
+          }
+        }
+  
+        .underline {
+          width: 0;
+          height: 2px;
+          background-color: #fff;
+          transition: width 0.3s ease;
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+        }
+      }
+    }
+  
+    .menu {
+      display: none;
+    }
+  
+    // Media queries for responsiveness
+ @media screen and (max-width: 768px) {
+    .header{
+        &-main {
+            justify-content: space-around;
+            .links {
+                display: none;
+            }
+    
+            .show-links{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 100px; /* Ayarlamak gerekebilir */
+                background-color: #010463;
+                width: 100%;
+                padding: 20px 0;
+                z-index: 100;
+                opacity: 0;
+                transition: opacity 0.5s ease, transform 0.5s ease;
+                transform-origin: top;
+                transform: scaleY(0);
+            }
+    
+            .show-links.active {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+    
+            .menu {
+                display: inline-block;
+                background-color: #010463;
+                width: 100%;
+                text-align: center;
+                padding: 5px;
+    
+                img {
+                    width: 30px;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+    .menu {
+        display: inline-block;
+        background-color: #010463;
+        width: 100%;
+        text-align: center;
+        padding: 5px;
+
+        img {
+            width: 30px;
+            cursor: pointer;
+        }
+    }
+}
+    
+
+  
+    @media screen and (max-width: 335px) {
+      .header {
+        &-main {
+          .show-links {
+            top: 120px;
+          }
+        }
+      }
+    }
+  }
+  
