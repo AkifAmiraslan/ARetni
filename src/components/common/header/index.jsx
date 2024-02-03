@@ -15,15 +15,13 @@ import closeMenu from '../../../assets/images/211651_close_round_icon.svg';
 
 function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false);
-    const [openSubmenu, setOpenSubmenu] = useState(null);
+
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
     };
 
-    const toggleSubmenu = (index) => {
-        setOpenSubmenu(openSubmenu === index ? null : index);
-    };
+    
 
     return (
         <div className="header">
@@ -35,11 +33,11 @@ function Header() {
                 <ul className={`links ${isMenuOpen ? 'show-links active' : ''}`}>
                     {menuItems.map((menu, index) => (
                         <li key={index}>
-                            <Link className='link' onClick={() => toggleSubmenu(index)}>
+                            <Link className='link'>
                                 {menu.title}
                                 <img src={arrowDown} alt="" />
                             </Link>
-                            <div className={`link-children ${openSubmenu === index ? 'show' : ''}`}>
+                            <div className='link-children'>
                                 {menu.subMenu.map((subItem, subIndex) => (
                                     <Link key={subIndex}>{subItem.title}</Link>
                                 ))}
