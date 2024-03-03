@@ -1,30 +1,24 @@
-/* eslint-disable react/prop-types */
-import photoCam from '../../../assets/images/photo-cam.png'
-import videoCam from '../../../assets/images/video-cam.png'
-function Cart(props){
-    const { isPhotoCam } = props;
+// cart.jsx
+
+import photoCam from '../../../assets/images/photo-cam.png';
+import videoCam from '../../../assets/images/video-cam.png';
+
+function Cart(props) {
+    // eslint-disable-next-line react/prop-types
+    const { isPhotoCam, imgSrc, text, date } = props;
     
-    return(
+    return (
         <div className="cart">
             <div className="img">
-                {
-                    isPhotoCam?(
-                        <img src={photoCam} className='cam' alt="" />
-                    ):(
-                        <img src={videoCam} className='cam' alt="" />
-                    )
-                }
-                <img src={props.imgSrc} alt="" />
-                <p className='date'>
-                    {props.date}
-                </p>
+                <img src={isPhotoCam ? photoCam : videoCam} className='cam' alt="" />
+                <img src={imgSrc} alt="" />
+                <p className='date'>{date}</p>
             </div>
             <div className="text">
-                <p>
-                    {props.text}
-                </p>
+                <p>{text}</p>
             </div>
         </div>
-    )
+    );
 }
+
 export default Cart;

@@ -6,15 +6,21 @@ import ilhamLogo from '../../../assets/images/ilham-logo.png'
 import mehribanLogo from '../../../assets/images/mehriban-logo.png'
 import haFondLogo from '../../../assets/images/ha-foundation-logo.png'
 import ameaLogo from '../../../assets/images/amea-logo.png'
-import { Navigation} from 'swiper/modules';
 
+
+
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import './styles.scss'
+
+// import required modules
+import { Navigation, Autoplay} from 'swiper/modules';
 import './styles.scss'
 function Libraries(){
     return(
@@ -24,8 +30,12 @@ function Libraries(){
             </h2>
             <div className='slider-1'>
                 <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
                     spaceBetween={50}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    }}
                     slidesPerView={4}
                     navigation
                     pagination={{ clickable: true }}
@@ -64,8 +74,12 @@ function Libraries(){
             </div>
             <div className='slider-2'>
                 <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
                     spaceBetween={50}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
                     slidesPerView={4}
                     navigation
                     pagination={{ clickable: true }}

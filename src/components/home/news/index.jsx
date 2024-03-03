@@ -1,109 +1,113 @@
-import { Navigation, Pagination} from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+/* eslint-disable react/no-unescaped-entities */
+
 import sliderImg from '../../../assets/images/slider-image.png';
 import './styles.scss'
 import Cart from './cart';
 import NewsImg from '../../../assets/images/news-thumb.png'
+import newsData from './newsData';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+
+
+// import required modules
+import { Navigation, Pagination, Autoplay} from 'swiper/modules';
+
+
+
 function News() {
+    
+    
     return (
         <div className='news-container'>
             <div className="news-slider">
                 <Swiper
-                    modules={[Navigation, Pagination]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    loop={true}
-                    pagination={{ clickable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 6000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img src={sliderImg} alt="" className="slider-image" />
+                        <div className='slider'>
+                            <img src={sliderImg} alt="" />
+                            <p>
+                                "Beynəlxaq nəqliyyat-logistika dəhlizi: Zəngilandan inkişaf impulsları" 
+                                mövzusunda konfransın ikinci günü Bakıda keçirilib.
+                            </p>
+                        </div>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={sliderImg} alt="" className="slider-image" />
+                    <SwiperSlide>                        
+                        <div className='slider'>
+                            <img src={sliderImg} alt="" />
+                            <p>
+                                "Beynəlxaq nəqliyyat-logistika dəhlizi: Zəngilandan inkişaf impulsları" 
+                                mövzusunda konfransın ikinci günü Bakıda keçirilib.
+                            </p>
+                        </div>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={sliderImg} alt="" className="slider-image" />
+                    <SwiperSlide>                        
+                        <div className='slider'>
+                            <img src={sliderImg} alt="" />
+                            <p>
+                                "Beynəlxaq nəqliyyat-logistika dəhlizi: Zəngilandan inkişaf impulsları" 
+                                mövzusunda konfransın ikinci günü Bakıda keçirilib.
+                            </p>
+                        </div>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={sliderImg} alt="" className="slider-image" />
+                    <SwiperSlide>                
+                        <div className='slider'>
+                            <img src={sliderImg} alt="" />
+                            <p>
+                                "Beynəlxaq nəqliyyat-logistika dəhlizi: Zəngilandan inkişaf impulsları" 
+                                mövzusunda konfransın ikinci günü Bakıda keçirilib.
+                            </p>
+                        </div>
                     </SwiperSlide>
+                    <SwiperSlide>                      
+                        <div className='slider'>
+                            <img src={sliderImg} alt="" />
+                            <p>
+                                "Beynəlxaq nəqliyyat-logistika dəhlizi: Zəngilandan inkişaf impulsları" 
+                                mövzusunda konfransın ikinci günü Bakıda keçirilib.
+                            </p>
+                        </div>
+                    </SwiperSlide>
+
                 </Swiper>
             </div>
             <div className='news-announcements'>
-                <section className='news'>
-                    <h2>
-                        XƏBƏRLƏR
-                    </h2>
-                    <div className='carts'>
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="Beynəlxalq nəqliyyat-logistika 
-                            dəhlizi: Zəngilandan inkişaf 
-                            impulsları” mövzusunda 
-                            beynəlxalq konfrans"
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="Beynəlxalq nəqliyyat-logistika 
-                            dəhlizi: Zəngilandan inkişaf 
-                            impulsları” mövzusunda 
-                            beynəlxalq konfrans"
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="Beynəlxalq nəqliyyat-logistika 
-                            dəhlizi: Zəngilandan inkişaf 
-                            impulsları” mövzusunda 
-                            beynəlxalq konfrans"
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                    </div>
-                </section>
-                <section className='announcements'>
-                    <h2>
-                        ELANLAR
-                    </h2>
-                    <div className='carts'>
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="İqtisadiyyat İnstitutunun əsas
-                            fənləri üzrə fəlsəfə doktoru 
-                            imtahanları qış sessiyası
-                            təşkil olunacaq."
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="İqtisadiyyat İnstitutunun əsas
-                            fənləri üzrə fəlsəfə doktoru 
-                            imtahanları qış sessiyası
-                            təşkil olunacaq."
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                        <Cart
-                            imgSrc={NewsImg}
-                            text="İqtisadiyyat İnstitutunun əsas
-                            fənləri üzrə fəlsəfə doktoru 
-                            imtahanları qış sessiyası
-                            təşkil olunacaq."
-                            eyeCount="123"
-                            date="17 noyabr 2023"
-                        />
-                    </div>
-                </section>
+                {newsData.map((section, index) => (
+                    <section key={index} className={section.type === "XƏBƏRLƏR" ? 'news' : 'announcements'}>
+                        <h2>{section.type}</h2>
+                        <div className='carts'>
+                            {section.items.map((item, itemIndex) => (
+                                <Cart
+                                    key={itemIndex}
+                                    imgSrc={NewsImg}
+                                    text={item.text}
+                                    eyeCount={item.eyeCount}
+                                    date={item.date}
+                                    id={item.id}
+                                    type={section.type}
+                                />
+                            ))}
+                        </div>
+                    </section>
+                ))}
             </div>
         </div>
         

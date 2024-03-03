@@ -7,8 +7,11 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    max-width: 1400px;
     margin: 0 auto;
+    a:hover{
+        color: aqua;
+        transition: 0.5s;
+    }
     section{
         display: flex;
         flex:1;

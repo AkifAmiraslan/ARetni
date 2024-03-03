@@ -1,9 +1,10 @@
-import{ useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { menuItems } from './menuItems'; 
 import './styles.scss'; 
 
 // Other image imports
+import logo from '../../../assets/images/logo-center.png'
 import homeIcn from '../../../assets/images/home-icon.png';
 import arrowDown from '../../../assets/images/downArrow-icon.svg';
 import facebookIcn from '../../../assets/images/facebook-icon.png';
@@ -15,19 +16,24 @@ import closeMenu from '../../../assets/images/211651_close_round_icon.svg';
 
 function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false);
-
+    const [isSearchOpen, setSearchOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
     };
+    const toggleSearch = () => {
+        setSearchOpen(!isSearchOpen)
+    }
 
-    
 
     return (
         <div className="header">
             <div className='header-main'>
                 <div className="home-icon">
-                    <img src={homeIcn} alt="" />
+                    <Link to="/">
+                        <img src={homeIcn} alt="" />
+                    </Link>
+                    
                 </div>
 
                 <ul className={`links ${isMenuOpen ? 'show-links active' : ''}`}>
@@ -37,9 +43,13 @@ function Header() {
                                 {menu.title}
                                 <img src={arrowDown} alt="" />
                             </Link>
+
                             <div className='link-children'>
                                 {menu.subMenu.map((subItem, subIndex) => (
-                                    <Link key={subIndex}>{subItem.title}</Link>
+                                    <div key={subIndex} className='subLinks'>
+                                        <Link className='title'>{subItem.title}</Link>
+                                        <Link className='small-title'>{subItem.paragraph}</Link> {/* Paragraf içeriğini burada göstermek isterseniz */}
+                                    </div>
                                 ))}
                             </div>
                         </li>
@@ -53,8 +63,12 @@ function Header() {
                 </div>
 
                 <div className='search'>
-                    <img src={searchIcn} alt="" />
-                    <input type="text" placeholder='AXTAR' />
+                    <img src={searchIcn} onClick={toggleSearch} alt="" />
+                    <input
+                        className={`search-input ${isSearchOpen ? 'open' : ''}`}
+                        type="search"
+                        placeholder='AXTAR'
+                    />
                 </div>
 
                 <div className='languages'>
@@ -73,6 +87,12 @@ function Header() {
                 ) : (
                     <img src={hamburgerMenu} alt="" onClick={toggleMenu} />
                 )}
+            </div>
+            <div className="caption-container">
+                <img src={logo} alt="" />
+                <p>
+                    Azərbaycan Respublikası Elm və Təhsil Nazirliyi İqtisadiyyat İnstitutu
+                </p>
             </div>
         </div>
     );

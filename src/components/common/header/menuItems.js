@@ -2,9 +2,15 @@ export const menuItems = [
     {
         title: "HAQQIMIZDA",
         subMenu: [
-          { title: "Biz kimik?" },
-          { title: "Nə edirik?" },
-          { title: "Tariximiz" }
+          { title: "Biz kimik?",
+            paragraph:"Azərbaycanın təhsilinin inkişafı başlıca predmetimizdir."
+          },
+          { title: "Nə edirik?",
+            paragraph:"Azərbaycanın təhsilinin inkişafı başlıca predmetimizdir."
+          },
+          { title: "Tariximiz",
+            paragraph:"Azərbaycanın təhsilinin inkişafı başlıca predmetimizdir."
+          }
         ]
       },
       {
