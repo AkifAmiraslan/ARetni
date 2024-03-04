@@ -9,8 +9,15 @@ import Footer from './components/common/footer'
 import NewsDetailPage from './pages/newsDetailPage';
 import AnnounceDetailPage from './pages/AnnounceDetailPage';
 import EventsDetailPage from './pages/EventsDetailPage';
+
+import { useEffect } from 'react';
+
 function App() {
 
+
+  useEffect(() => {
+    window.scroll(0,0)
+  }, []);
 
   return (
     <>
@@ -24,6 +31,8 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+
+    
     </>
   )
 }

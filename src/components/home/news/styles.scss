@@ -7,6 +7,7 @@
     .news-slider {
         width: 50%; /* Set the width of the slider container to 50% of the screen width */
         text-align: center;
+        margin-block: 20px;
         img{
             position: relative;
         }
@@ -29,9 +30,13 @@
         
     }
     .news-announcements{
-        display: flex;
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
         width: 100%;
         justify-content: space-between;
+        position: relative;
         .news, .announcements{
             width: 48%;
             display: flex;
@@ -44,15 +49,18 @@
         }
         .carts{
             display: flex;
-            flex-direction: column;
-            height: 90%;
+            
+            flex-wrap: wrap;
+            
             justify-content: space-between;
+            gap: 20px;
             .cart{
+                width: 300px;
                 a{
                     display: flex;
                     height: 110px;
                     text-decoration: none;
-
+                    width: 100%;
                     &:hover{
                         cursor:pointer;
                         .about{
@@ -98,6 +106,24 @@
                         }
                     }
                 }
+            }
+        }
+        .openNews{
+            position: absolute;
+            right: 20%;
+            bottom:70px;
+            width: 40px;
+            height: 40px;
+            
+            background-color:#010463;
+            color:#fff;
+            font-size: 20px;
+            border: 0;
+            border-radius: 20px;
+            cursor: pointer;
+            &:hover{
+                scale: 1.2;
+                transition: scale 0.4s;
             }
         }
     }

@@ -1,27 +1,40 @@
 import { useParams } from 'react-router-dom';
-import newsData from '../components/home/news/newsData';
-import { useEffect } from 'react';
-function AnnounceDetailPage(){
-    useEffect(() => {
-        window.scroll(0,0)
-    },[])
-    let { id } = useParams();
-    const newsItem = newsData.find(section => section.type === "ELANLAR").items.find(item => item.id === parseInt(id));
-    return(
-            
-        <div className='announce-detail'>
-            <h2>Elan haqda məlumat</h2>
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-            {newsItem ? (
+function AnnounceDetailPage(){
+    const [article, setArticle] = useState(null);
+    const { id } = useParams();
+
+    useEffect(() => {
+        axios.get('https://alphaomega.az/api/pages')
+        .then(response => {
+            const data = response.data;
+            // Verilerin içinde gezinerek, belirtilen id'ye sahip olan makaleyi buluyoruz
+            const foundArticle = data.find(item => item.id === parseInt(id));
+            if (foundArticle) {
+                setArticle(foundArticle);
+            } else {
+                console.error('Məlumat tapılmadı');
+            }
+        })
+        .catch(error => {
+            console.error('Məlumatlar alınarkən səhv:', error);
+        });
+        window.scroll(0,0);
+    }, [id]);
+
+    return(
+        <div className='announce-detail'>
+            {article ? (
                 <div>
-                    <h3>{newsItem.text}</h3>
-                    <p>{newsItem.text}</p>
+                    <h2>{article.title_az}</h2>
+                    <p>{article.content_az}</p>
                 </div>
             ) : (
-                <p>Xəbər tapılmadı</p>
+                <p>Məlumat tapılmadı</p>
             )}
         </div>
-        
     )
 }
 

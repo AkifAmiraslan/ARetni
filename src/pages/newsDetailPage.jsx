@@ -1,13 +1,22 @@
 import { useParams } from 'react-router-dom';
 import newsData from '../components/home/news/newsData';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './detail.scss'
 function NewsDetailPage(){
+    const [articles, setArticles] = useState([]);
     useEffect(() => {
+        axios.get('https://alphaomega.az/api/pages')
+        .then(response => {
+          setArticles(response.data);
+        })
+        .catch(error => {
+          console.error('Məlumatlar alınarkən səhv:', error);
+        });
         window.scroll(0,0)
     },[])
     let { id } = useParams();
-    const newsItem = newsData.flatMap(section => section.items).find(item => item.id === parseInt(id));
+    const newsItem = articles.flatMap(section => section.items).find(item => item.id === parseInt(id));
     return(
             
         <div className='news-detail'>
